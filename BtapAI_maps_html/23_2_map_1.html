@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5355fe0b2bc8c01acccde9e07701a9ae {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_5355fe0b2bc8c01acccde9e07701a9ae" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5355fe0b2bc8c01acccde9e07701a9ae = L.map(
+                "map_5355fe0b2bc8c01acccde9e07701a9ae",
+                {
+                    center: [10.7610675, 106.6685227],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_362b1435fa1ccb0a3acf217909cdf30f = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_362b1435fa1ccb0a3acf217909cdf30f.addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+            var marker_db7043dd952d626582f42931b81d2b31 = L.marker(
+                [10.7725301, 106.6980365],
+                {
+}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+        var popup_c011edd1e1e0e3fdfe192c5ea816e5e0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e45446218005ccbed89f6d4f82a6eb3e = $(`<div id="html_e45446218005ccbed89f6d4f82a6eb3e" style="width: 100.0%; height: 100.0%;">Chợ Bến Thành, TP.HCM</div>`)[0];
+                popup_c011edd1e1e0e3fdfe192c5ea816e5e0.setContent(html_e45446218005ccbed89f6d4f82a6eb3e);
+            
+        
+
+        marker_db7043dd952d626582f42931b81d2b31.bindPopup(popup_c011edd1e1e0e3fdfe192c5ea816e5e0)
+        ;
+
+        
+    
+    
+            var poly_line_8e38c494582dffcb3b49c371f5c256fd = L.polyline(
+                [[10.7610675, 106.6685227], [10.7725301, 106.6980365]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+            var marker_74b1edc6cd8091903d649d0d2f684ef6 = L.marker(
+                [10.7566964, 106.6597263],
+                {
+}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+        var popup_3dc51182bb2c0b0012f25211a1885227 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a1f4fa74510fc3cb45ccd27dc04aa19a = $(`<div id="html_a1f4fa74510fc3cb45ccd27dc04aa19a" style="width: 100.0%; height: 100.0%;">Bệnh viện Chợ Rẫy, TP.HCM</div>`)[0];
+                popup_3dc51182bb2c0b0012f25211a1885227.setContent(html_a1f4fa74510fc3cb45ccd27dc04aa19a);
+            
+        
+
+        marker_74b1edc6cd8091903d649d0d2f684ef6.bindPopup(popup_3dc51182bb2c0b0012f25211a1885227)
+        ;
+
+        
+    
+    
+            var poly_line_8406fee3f68463695cc6b3ef6fe8327f = L.polyline(
+                [[10.7610675, 106.6685227], [10.7566964, 106.6597263]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+            var marker_741aaa02881b67893edda100483dba9b = L.marker(
+                [10.7770348, 106.695488],
+                {
+}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+        var popup_43a9dbc035c593f5a4e8cab05e1543bc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c17f3b9ee3f6fb1f28ef5171784a16a6 = $(`<div id="html_c17f3b9ee3f6fb1f28ef5171784a16a6" style="width: 100.0%; height: 100.0%;">Dinh Độc Lập, TP.HCM </div>`)[0];
+                popup_43a9dbc035c593f5a4e8cab05e1543bc.setContent(html_c17f3b9ee3f6fb1f28ef5171784a16a6);
+            
+        
+
+        marker_741aaa02881b67893edda100483dba9b.bindPopup(popup_43a9dbc035c593f5a4e8cab05e1543bc)
+        ;
+
+        
+    
+    
+            var poly_line_8219c7863b8189bd034f1d35e6acbdfd = L.polyline(
+                [[10.7610675, 106.6685227], [10.7770348, 106.695488]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+            var marker_52e382beb9b98fe7bfa39566d41269da = L.marker(
+                [10.7792374, 106.6991514],
+                {
+}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+        var popup_0094073ac5e25ebbb9929f9ab74d24a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b4cfd86655bb44564dd6d58bb65f8f15 = $(`<div id="html_b4cfd86655bb44564dd6d58bb65f8f15" style="width: 100.0%; height: 100.0%;">Nhà thờ Đức Bà, TP.HCM</div>`)[0];
+                popup_0094073ac5e25ebbb9929f9ab74d24a5.setContent(html_b4cfd86655bb44564dd6d58bb65f8f15);
+            
+        
+
+        marker_52e382beb9b98fe7bfa39566d41269da.bindPopup(popup_0094073ac5e25ebbb9929f9ab74d24a5)
+        ;
+
+        
+    
+    
+            var poly_line_bcd790f285aa9fa150537b8eca6587af = L.polyline(
+                [[10.7610675, 106.6685227], [10.7792374, 106.6991514]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+            var marker_665762d1f88a32b17a5bbe6c8642d0b5 = L.marker(
+                [10.7896064, 106.7045903],
+                {
+}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+        var popup_be67ae4a13e41f7492ade16c4be53c00 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aeb8c5bdb796e9f6ef3417b796a33838 = $(`<div id="html_aeb8c5bdb796e9f6ef3417b796a33838" style="width: 100.0%; height: 100.0%;">Thảo Cầm Viên, TP.HCM</div>`)[0];
+                popup_be67ae4a13e41f7492ade16c4be53c00.setContent(html_aeb8c5bdb796e9f6ef3417b796a33838);
+            
+        
+
+        marker_665762d1f88a32b17a5bbe6c8642d0b5.bindPopup(popup_be67ae4a13e41f7492ade16c4be53c00)
+        ;
+
+        
+    
+    
+            var poly_line_27799fb475b70a020d4f54731460e1b2 = L.polyline(
+                [[10.7610675, 106.6685227], [10.7896064, 106.7045903]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+            var marker_415b5fdbd58fd120a1b0be96d3921451 = L.marker(
+                [10.7556384, 106.6646794],
+                {
+}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+        var popup_88263131ddbef463cc3f6b1f056d5505 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_831211363ae910fcfc79098c25a5db5b = $(`<div id="html_831211363ae910fcfc79098c25a5db5b" style="width: 100.0%; height: 100.0%;">Bệnh viện Đại học Y Dược, TP.HCM</div>`)[0];
+                popup_88263131ddbef463cc3f6b1f056d5505.setContent(html_831211363ae910fcfc79098c25a5db5b);
+            
+        
+
+        marker_415b5fdbd58fd120a1b0be96d3921451.bindPopup(popup_88263131ddbef463cc3f6b1f056d5505)
+        ;
+
+        
+    
+    
+            var poly_line_97692948aa99e88293ef2849fb5c94b1 = L.polyline(
+                [[10.7610675, 106.6685227], [10.7556384, 106.6646794]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+            var marker_ec4252f253c2c89a13cf9dfc4a6493b0 = L.marker(
+                [10.7401271, 106.6194006],
+                {
+}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+        var popup_18724da76620b9b893be59ef3db518cb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_60447b0b9f1a78536c94a55ed2e17a3f = $(`<div id="html_60447b0b9f1a78536c94a55ed2e17a3f" style="width: 100.0%; height: 100.0%;">Bến xe Miền Tây, TP.HCM</div>`)[0];
+                popup_18724da76620b9b893be59ef3db518cb.setContent(html_60447b0b9f1a78536c94a55ed2e17a3f);
+            
+        
+
+        marker_ec4252f253c2c89a13cf9dfc4a6493b0.bindPopup(popup_18724da76620b9b893be59ef3db518cb)
+        ;
+
+        
+    
+    
+            var poly_line_7c2cb625e23072e43559c366953cd0b9 = L.polyline(
+                [[10.7610675, 106.6685227], [10.7401271, 106.6194006]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+            var marker_a852e48be0125ac0c4b241e16d2be2da = L.marker(
+                [10.7704843, 106.6695631],
+                {
+}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+    
+        var popup_763c904b6287da9ded8547438d19438a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1e5d2838ccdc7ba28b6ea3b94b90ed3e = $(`<div id="html_1e5d2838ccdc7ba28b6ea3b94b90ed3e" style="width: 100.0%; height: 100.0%;">Vạn Hạnh Mall, TP.HCM</div>`)[0];
+                popup_763c904b6287da9ded8547438d19438a.setContent(html_1e5d2838ccdc7ba28b6ea3b94b90ed3e);
+            
+        
+
+        marker_a852e48be0125ac0c4b241e16d2be2da.bindPopup(popup_763c904b6287da9ded8547438d19438a)
+        ;
+
+        
+    
+    
+            var poly_line_f0c6f16aa3395f253f4c6c85a4d7f4e7 = L.polyline(
+                [[10.7610675, 106.6685227], [10.7704843, 106.6695631]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_5355fe0b2bc8c01acccde9e07701a9ae);
+        
+</script>
+</html>

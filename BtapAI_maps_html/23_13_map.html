@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2d946320ae4eda4deccfb31900ddfe3e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+</head>
+<body>
+    
+    
+<div style="
+position: fixed;
+top: 10px;
+left: 50px;
+width: 420px;
+z-index: 9999;
+background-color: white;
+padding: 12px;
+border: 2px solid gray;
+border-radius: 8px;
+font-size: 14px;">
+<b>Dashboard quản trị giao hàng</b><br>
+Mục tiêu: theo dõi điểm nhu cầu, vùng phục vụ và tuyến giao hàng đề xuất.<br>
+Ứng dụng: hỗ trợ quyết định mở rộng vùng phục vụ, tối ưu tuyến và ưu tiên khách hàng doanh thu cao.
+</div>
+    
+            <div class="folium-map" id="map_2d946320ae4eda4deccfb31900ddfe3e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2d946320ae4eda4deccfb31900ddfe3e = L.map(
+                "map_2d946320ae4eda4deccfb31900ddfe3e",
+                {
+                    center: [10.776, 106.7],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d99291f779c1c243f0eeef0b13cf2243 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d99291f779c1c243f0eeef0b13cf2243.addTo(map_2d946320ae4eda4deccfb31900ddfe3e);
+        
+    
+            var feature_group_748f82acbfa9187d51180f171dfe1ddc = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_6bcb5cf8a4246678dbbacee6327c15a7 = L.marker(
+                [10.776, 106.7],
+                {
+}
+            ).addTo(feature_group_748f82acbfa9187d51180f171dfe1ddc);
+        
+    
+            var icon_5e775c3675f9daa0e72b687d8a0908bb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_888a2a3e0959d0066970164180d60dc8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f8fd9524042cd8ac93ebfcef0211f851 = $(`<div id="html_f8fd9524042cd8ac93ebfcef0211f851" style="width: 100.0%; height: 100.0%;">     <b>Kho trung tâm</b><br>     Vai trò: điểm xuất phát giao hàng<br>     Chiến lược: trung tâm phân phối     </div>`)[0];
+                popup_888a2a3e0959d0066970164180d60dc8.setContent(html_f8fd9524042cd8ac93ebfcef0211f851);
+            
+        
+
+        marker_6bcb5cf8a4246678dbbacee6327c15a7.bindPopup(popup_888a2a3e0959d0066970164180d60dc8)
+        ;
+
+        
+    
+    
+            marker_6bcb5cf8a4246678dbbacee6327c15a7.bindTooltip(
+                `<div>
+                     Kho trung tâm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6bcb5cf8a4246678dbbacee6327c15a7.setIcon(icon_5e775c3675f9daa0e72b687d8a0908bb);
+            
+    
+            feature_group_748f82acbfa9187d51180f171dfe1ddc.addTo(map_2d946320ae4eda4deccfb31900ddfe3e);
+        
+    
+            var feature_group_dfd4c0d1bdc42c172c72ecbfdce9d2f5 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_4993b8245a4ee9ac9e1c9b79b32543d5 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_a49c81e5986717aa0f9f0efd89892473 = L.circleMarker(
+                [10.77, 106.695],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.5, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4993b8245a4ee9ac9e1c9b79b32543d5);
+        
+    
+        var popup_641eea9100f5a7a02ffca5ddcd276b1d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b3a2c14980e09b1be3cb4c94bcfd7720 = $(`<div id="html_b3a2c14980e09b1be3cb4c94bcfd7720" style="width: 100.0%; height: 100.0%;">         <b>Khách A</b><br>         Số đơn: 25<br>         Doanh thu: 120 triệu<br>         Nhóm: Doanh thu trung bình         </div>`)[0];
+                popup_641eea9100f5a7a02ffca5ddcd276b1d.setContent(html_b3a2c14980e09b1be3cb4c94bcfd7720);
+            
+        
+
+        circle_marker_a49c81e5986717aa0f9f0efd89892473.bindPopup(popup_641eea9100f5a7a02ffca5ddcd276b1d)
+        ;
+
+        
+    
+    
+            circle_marker_a49c81e5986717aa0f9f0efd89892473.bindTooltip(
+                `<div>
+                     Khách A
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5f326237373caa5e99f3e8cb11ec305d = L.circleMarker(
+                [10.785, 106.705],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4993b8245a4ee9ac9e1c9b79b32543d5);
+        
+    
+        var popup_b48846ae88c08eff03917294ce2e29f6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bdec189bb597cac4218e27fa05d37e87 = $(`<div id="html_bdec189bb597cac4218e27fa05d37e87" style="width: 100.0%; height: 100.0%;">         <b>Khách B</b><br>         Số đơn: 40<br>         Doanh thu: 180 triệu<br>         Nhóm: Doanh thu trung bình         </div>`)[0];
+                popup_b48846ae88c08eff03917294ce2e29f6.setContent(html_bdec189bb597cac4218e27fa05d37e87);
+            
+        
+
+        circle_marker_5f326237373caa5e99f3e8cb11ec305d.bindPopup(popup_b48846ae88c08eff03917294ce2e29f6)
+        ;
+
+        
+    
+    
+            circle_marker_5f326237373caa5e99f3e8cb11ec305d.bindTooltip(
+                `<div>
+                     Khách B
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a8c9333ee116d4d1bd8623d070da1d51 = L.circleMarker(
+                [10.76, 106.69],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.5, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4993b8245a4ee9ac9e1c9b79b32543d5);
+        
+    
+        var popup_92760ea41be24fe91ef6f7627f137fbd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ac476b3a09e0175eefc6b13c6bc608c4 = $(`<div id="html_ac476b3a09e0175eefc6b13c6bc608c4" style="width: 100.0%; height: 100.0%;">         <b>Khách C</b><br>         Số đơn: 15<br>         Doanh thu: 75 triệu<br>         Nhóm: Doanh thu thấp         </div>`)[0];
+                popup_92760ea41be24fe91ef6f7627f137fbd.setContent(html_ac476b3a09e0175eefc6b13c6bc608c4);
+            
+        
+
+        circle_marker_a8c9333ee116d4d1bd8623d070da1d51.bindPopup(popup_92760ea41be24fe91ef6f7627f137fbd)
+        ;
+
+        
+    
+    
+            circle_marker_a8c9333ee116d4d1bd8623d070da1d51.bindTooltip(
+                `<div>
+                     Khách C
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4ead6abee82a5b66ea8e0a8212dd07e2 = L.circleMarker(
+                [10.79, 106.715],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.5, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4993b8245a4ee9ac9e1c9b79b32543d5);
+        
+    
+        var popup_45bb97be3753dfce3e0d48ff1a586f28 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_db33e17ee4afb58940c050266f489b08 = $(`<div id="html_db33e17ee4afb58940c050266f489b08" style="width: 100.0%; height: 100.0%;">         <b>Khách D</b><br>         Số đơn: 55<br>         Doanh thu: 230 triệu<br>         Nhóm: Doanh thu cao         </div>`)[0];
+                popup_45bb97be3753dfce3e0d48ff1a586f28.setContent(html_db33e17ee4afb58940c050266f489b08);
+            
+        
+
+        circle_marker_4ead6abee82a5b66ea8e0a8212dd07e2.bindPopup(popup_45bb97be3753dfce3e0d48ff1a586f28)
+        ;
+
+        
+    
+    
+            circle_marker_4ead6abee82a5b66ea8e0a8212dd07e2.bindTooltip(
+                `<div>
+                     Khách D
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            marker_cluster_4993b8245a4ee9ac9e1c9b79b32543d5.addTo(feature_group_dfd4c0d1bdc42c172c72ecbfdce9d2f5);
+        
+    
+            feature_group_dfd4c0d1bdc42c172c72ecbfdce9d2f5.addTo(map_2d946320ae4eda4deccfb31900ddfe3e);
+        
+    
+            var feature_group_ccc2c1d3436df01598c8e017a5c78cec = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_ce11af9190065db90552a84f6a5491c2 = L.circle(
+                [10.776, 106.7],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.08, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ccc2c1d3436df01598c8e017a5c78cec);
+        
+    
+        var popup_476cf33b4b5ea2d2db602603bac28e4b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_60363cd9bc63bc83f8a7c6ff35b16c43 = $(`<div id="html_60363cd9bc63bc83f8a7c6ff35b16c43" style="width: 100.0%; height: 100.0%;">Vùng phục vụ nhanh 3km</div>`)[0];
+                popup_476cf33b4b5ea2d2db602603bac28e4b.setContent(html_60363cd9bc63bc83f8a7c6ff35b16c43);
+            
+        
+
+        circle_ce11af9190065db90552a84f6a5491c2.bindPopup(popup_476cf33b4b5ea2d2db602603bac28e4b)
+        ;
+
+        
+    
+    
+            var circle_7ec3747cf5017db8bf254491ce843941 = L.circle(
+                [10.776, 106.7],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.08, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ccc2c1d3436df01598c8e017a5c78cec);
+        
+    
+        var popup_24591c045fb9ce87f6072d565cd6e010 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b2fda1d1ffe603bcff7cf5d7e5b5bde0 = $(`<div id="html_b2fda1d1ffe603bcff7cf5d7e5b5bde0" style="width: 100.0%; height: 100.0%;">Vùng phục vụ mở rộng 5km</div>`)[0];
+                popup_24591c045fb9ce87f6072d565cd6e010.setContent(html_b2fda1d1ffe603bcff7cf5d7e5b5bde0);
+            
+        
+
+        circle_7ec3747cf5017db8bf254491ce843941.bindPopup(popup_24591c045fb9ce87f6072d565cd6e010)
+        ;
+
+        
+    
+    
+            var circle_7e53289e55833a949c1bfd96a61f0b16 = L.circle(
+                [10.776, 106.7],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.08, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8000, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ccc2c1d3436df01598c8e017a5c78cec);
+        
+    
+        var popup_6518f15f441d987519a2ab9623eeff71 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0f50b32b5fab8d8dae9136e398f096d3 = $(`<div id="html_0f50b32b5fab8d8dae9136e398f096d3" style="width: 100.0%; height: 100.0%;">Vùng chi phí cao 8km</div>`)[0];
+                popup_6518f15f441d987519a2ab9623eeff71.setContent(html_0f50b32b5fab8d8dae9136e398f096d3);
+            
+        
+
+        circle_7e53289e55833a949c1bfd96a61f0b16.bindPopup(popup_6518f15f441d987519a2ab9623eeff71)
+        ;
+
+        
+    
+    
+            feature_group_ccc2c1d3436df01598c8e017a5c78cec.addTo(map_2d946320ae4eda4deccfb31900ddfe3e);
+        
+    
+            var feature_group_715bf33bdaae1a0135f5d27cf227a76c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var poly_line_d2b5dcb4a50d60b4a21c715985c93fff = L.polyline(
+                [[10.776, 106.7], [10.77, 106.695]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_715bf33bdaae1a0135f5d27cf227a76c);
+        
+    
+        var popup_c596d8835761be1c1b448fabf2b8355c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_82f6872f93b5d6f3cf85d8557dff69bc = $(`<div id="html_82f6872f93b5d6f3cf85d8557dff69bc" style="width: 100.0%; height: 100.0%;">Tuyến giao hàng đề xuất</div>`)[0];
+                popup_c596d8835761be1c1b448fabf2b8355c.setContent(html_82f6872f93b5d6f3cf85d8557dff69bc);
+            
+        
+
+        poly_line_d2b5dcb4a50d60b4a21c715985c93fff.bindPopup(popup_c596d8835761be1c1b448fabf2b8355c)
+        ;
+
+        
+    
+    
+            var poly_line_ed5d218029b3c33ceb511909978281ec = L.polyline(
+                [[10.776, 106.7], [10.785, 106.705]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_715bf33bdaae1a0135f5d27cf227a76c);
+        
+    
+        var popup_664f9e92088eb0e2251a2b682c6090c7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_07d6778a7c494e262a4083a9f347e6f9 = $(`<div id="html_07d6778a7c494e262a4083a9f347e6f9" style="width: 100.0%; height: 100.0%;">Tuyến giao hàng đề xuất</div>`)[0];
+                popup_664f9e92088eb0e2251a2b682c6090c7.setContent(html_07d6778a7c494e262a4083a9f347e6f9);
+            
+        
+
+        poly_line_ed5d218029b3c33ceb511909978281ec.bindPopup(popup_664f9e92088eb0e2251a2b682c6090c7)
+        ;
+
+        
+    
+    
+            var poly_line_dc4ef25ddb5f653b44ea9d517bb45faf = L.polyline(
+                [[10.776, 106.7], [10.76, 106.69]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_715bf33bdaae1a0135f5d27cf227a76c);
+        
+    
+        var popup_373213f3c2cb7c8ac8901c97bb33a5f4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df73786b428b79d25b59a842252b4984 = $(`<div id="html_df73786b428b79d25b59a842252b4984" style="width: 100.0%; height: 100.0%;">Tuyến giao hàng đề xuất</div>`)[0];
+                popup_373213f3c2cb7c8ac8901c97bb33a5f4.setContent(html_df73786b428b79d25b59a842252b4984);
+            
+        
+
+        poly_line_dc4ef25ddb5f653b44ea9d517bb45faf.bindPopup(popup_373213f3c2cb7c8ac8901c97bb33a5f4)
+        ;
+
+        
+    
+    
+            var poly_line_e240a1d68b32832994c595230a7ccde5 = L.polyline(
+                [[10.776, 106.7], [10.79, 106.715]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(feature_group_715bf33bdaae1a0135f5d27cf227a76c);
+        
+    
+        var popup_b1ec49b1a513f139fdfeb22ad4ab5cf9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2552de62968913d314fdb381d76f38d0 = $(`<div id="html_2552de62968913d314fdb381d76f38d0" style="width: 100.0%; height: 100.0%;">Tuyến giao hàng đề xuất</div>`)[0];
+                popup_b1ec49b1a513f139fdfeb22ad4ab5cf9.setContent(html_2552de62968913d314fdb381d76f38d0);
+            
+        
+
+        poly_line_e240a1d68b32832994c595230a7ccde5.bindPopup(popup_b1ec49b1a513f139fdfeb22ad4ab5cf9)
+        ;
+
+        
+    
+    
+            feature_group_715bf33bdaae1a0135f5d27cf227a76c.addTo(map_2d946320ae4eda4deccfb31900ddfe3e);
+        
+    
+            var layer_control_b309bf2301ca9a79ec7213f141406903_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_d99291f779c1c243f0eeef0b13cf2243,
+                },
+                overlays :  {
+                    "Kho trung t\u00e2m" : feature_group_748f82acbfa9187d51180f171dfe1ddc,
+                    "Kh\u00e1ch h\u00e0ng / \u0111i\u1ec3m nhu c\u1ea7u" : feature_group_dfd4c0d1bdc42c172c72ecbfdce9d2f5,
+                    "V\u00f9ng ph\u1ee5c v\u1ee5" : feature_group_ccc2c1d3436df01598c8e017a5c78cec,
+                    "Tuy\u1ebfn giao h\u00e0ng \u0111\u1ec1 xu\u1ea5t" : feature_group_715bf33bdaae1a0135f5d27cf227a76c,
+                },
+            };
+            let layer_control_b309bf2301ca9a79ec7213f141406903 = L.control.layers(
+                layer_control_b309bf2301ca9a79ec7213f141406903_layers.base_layers,
+                layer_control_b309bf2301ca9a79ec7213f141406903_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_2d946320ae4eda4deccfb31900ddfe3e);
+
+        
+    
+            var tile_layer_ab5c2feecdf60d8137928f8dc7e08165 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_5781d16bd6351b7c2dcbcf29886e065e = new L.Control.MiniMap(
+                tile_layer_ab5c2feecdf60d8137928f8dc7e08165,
+                {
+  "position": "bottomright",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": true,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_2d946320ae4eda4deccfb31900ddfe3e.addControl(mini_map_5781d16bd6351b7c2dcbcf29886e065e);
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_2d946320ae4eda4deccfb31900ddfe3e);
+        
+    
+            var measure_control_1e9533bbe626854050df59583bf05909 = new L.Control.Measure(
+                {
+  "position": "topright",
+  "primaryLengthUnit": "kilometers",
+  "secondaryLengthUnit": "miles",
+  "primaryAreaUnit": "sqmeters",
+  "secondaryAreaUnit": "acres",
+});
+            map_2d946320ae4eda4deccfb31900ddfe3e.addControl(measure_control_1e9533bbe626854050df59583bf05909);
+
+            // Workaround for using this plugin with Leaflet>=1.8.0
+            // https://github.com/ljagis/leaflet-measure/issues/171
+            L.Control.Measure.include({
+                _setCaptureMarkerIcon: function () {
+                    // disable autopan
+                    this._captureMarker.options.autoPanOnFocus = false;
+                    // default function
+                    this._captureMarker.setIcon(
+                        L.divIcon({
+                            iconSize: this._map.getSize().multiplyBy(2)
+                        })
+                    );
+                },
+            });
+
+        
+</script>
+</html>
